@@ -15,28 +15,9 @@ let storage = multer.diskStorage({
 
 let upload = multer({ storage, limits: { fileSize: 1000000 * 100 } }).single(
     "myfile"
-); //100mb file allow
+);
 
-// router.post("/", (req, res) => {
-//     upload(req, res, async (err) => {
-//         if (err) {
-//             return res.status(500).send({ error: err.message });
-//         }
-//         const file = new File({
-//             filename: req.file.filename,
-//             uuid: uuidv4(),
-//             path: req.file.path,
-//             size: req.file.size,
-//         });
-//         const response = await file.save();
-//         res.json({
-//             file: `${process.env.APP_BASE_URL}/files/${response.uuid}`,
-//             //used for user download
-//         });
-//     });
-// });
 
-// ... Your existing imports and code ...
 
 router.post("/", (req, res) => {
     upload(req, res, async (err) => {
